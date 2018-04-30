@@ -17,5 +17,17 @@
 
 
 <ion-content padding>
+  <form #f="ngForm" (ngSubmit)="onGetMeteo(f.value)">
+    <ion-item>
+      <ion-label>
+        ville:
+      </ion-label>
+      <ion-input name ='ville' type="text" ngModel required="">
+      </ion-input>
+    </ion-item>
+
+    <button ion-button="" type="submit" [disabled]="!f.valid">Valider</button>
+
+  </form>
 
 </ion-content>

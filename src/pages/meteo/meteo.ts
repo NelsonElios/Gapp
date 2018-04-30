@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
 import { IonicPage, NavController, NavParams } from 'ionic-angular';
+import {HttpClient} from "@angular/common/http";
 
 /**
  * Generated class for the MeteoPage page.
@@ -15,11 +16,15 @@ import { IonicPage, NavController, NavParams } from 'ionic-angular';
 })
 export class MeteoPage {
 
-  constructor(public navCtrl: NavController, public navParams: NavParams) {
+  constructor(public navCtrl: NavController, public navParams: NavParams, private http: HttpClient) {
   }
 
   ionViewDidLoad() {
     console.log('ionViewDidLoad MeteoPage');
   }
 
+  onGetMeteo(dataForm) {
+    this.http.get(`https://openweathermap.org/data/2.5/forecast?q=${dataForm.ville}&APPID=`);
+
+  }
 }

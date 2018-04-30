@@ -9,8 +9,9 @@ import { HomePage } from '../pages/home/home';
  import {GalleryPage} from "../pages/gallery/gallery";
  import {MeteoPage} from "../pages/meteo/meteo";
  import {PlacesPage} from "../pages/places/places";
- import {HttpModule} from "@angular/http";
+ //import {HttpModule} from "@angular/http";
  import {GalleryService} from "../services/gallery.service";
+ import {HttpClientModule} from "@angular/common/http";
 
 @NgModule({
   declarations: [
@@ -22,7 +23,8 @@ import { HomePage } from '../pages/home/home';
   ],
   imports: [
     BrowserModule,
-    HttpModule,
+   // HttpModule,
+    HttpClientModule,
     IonicModule.forRoot(MyApp)
   ],
   bootstrap: [IonicApp],
@@ -37,7 +39,8 @@ import { HomePage } from '../pages/home/home';
     StatusBar,
     GalleryService,
     SplashScreen,
-    {provide: ErrorHandler, useClass: IonicErrorHandler}
+    {provide: ErrorHandler, useClass: IonicErrorHandler},
+    HttpClientModule
   ]
 })
 export class AppModule {}
